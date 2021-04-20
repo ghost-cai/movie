@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorwhite"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+
+    <include
+        android:id="@+id/rela_title"
+        layout="@layout/item_title_view" />
+
+
+    <LinearLayout
+        android:id="@+id/all1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rela_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imgv_photo"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@mipmap/pic_haishanggangqinshi" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="电影名称：海上钢琴师"
+            android:textColor="@color/color_black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_people"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="导演：吴京"
+            android:textColor="@color/color_black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_hot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="票房：5600万"
+            android:textColor="@color/color_black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="评分：9.5"
+            android:textColor="@color/color_black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_like"
+            android:layout_width="92dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/shape_bg_3853e8_4"
+            android:gravity="center"
+            android:text="未订阅"
+            android:textColor="@color/colorwhite"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@id/all1"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="打分"
+            android:textSize="25dp"
+            android:layout_gravity="center_horizontal"/>
+        <RatingBar
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"/>
+    </LinearLayout>
+
+</RelativeLayout>

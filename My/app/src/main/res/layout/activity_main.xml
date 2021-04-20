@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:fitsSystemWindows="true">
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ll_bottom"
+        android:layout_weight="1"
+        android:background="@android:color/transparent">
+    </FrameLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#03A9F4"
+        android:elevation="30dp"
+        android:gravity="center_vertical"
+        android:minHeight="50dp"
+        android:orientation="horizontal"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp">
+
+
+        <Button
+            android:id="@+id/chatBtn"
+            android:onClick="myClick"
+            android:text="社区"
+            android:textSize="20dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="#03A9F4"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/homeBtn"
+            android:onClick="myClick"
+            android:text="首页"
+            android:textSize="20dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="#03A9F4"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/myBtn"
+            android:onClick="myClick"
+            android:text="我的"
+            android:textSize="20dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="#03A9F4"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+
+</RelativeLayout>

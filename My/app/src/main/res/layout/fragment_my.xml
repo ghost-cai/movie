@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_theme_bg"
+    android:fitsSystemWindows="true">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="40dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="#f8f8f8">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="90dp"
+                android:orientation="horizontal">
+
+                <!--头像-->
+                <ImageView
+                    android:id="@+id/headImg"
+                    android:layout_width="62dp"
+                    android:layout_height="62dp"
+                    android:layout_marginLeft="24dp"
+                    android:src="@mipmap/icon_photo_default"/>
+
+                <TextView
+                    android:id="@+id/tv_username_mine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="12dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="登录"
+                    android:textColor="#333333"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rela_list"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@color/colorwhite">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:text="我的订阅"
+                android:textColor="#333333"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="25dp"
+                android:src="@mipmap/icon_my_right_arrow" />
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/tv_logout"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/shape_bg_3853e8_4"
+            android:gravity="center"
+            android:text="退出登录"
+            android:textColor="@color/colorwhite"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>
