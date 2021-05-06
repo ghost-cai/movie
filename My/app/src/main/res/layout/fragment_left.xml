@@ -7,21 +7,9 @@
     tools:context=".fragment.LeftFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <Button
+    <ListView
+        android:id="@+id/lv1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="爱情"
-        android:textSize="20dp" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="科幻"
-        android:textSize="20dp" />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="恐怖"
-        android:textSize="20dp" />
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>
