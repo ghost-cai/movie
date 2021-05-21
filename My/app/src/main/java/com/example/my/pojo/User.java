@@ -11,6 +11,14 @@ public class User implements DBHelper.TableCreateTnterface
     private String uname;
     private String pwd;
 
+    public User() {
+    }
+
+    public User(String uname, String pwd) {
+        this.uname = uname;
+        this.pwd = pwd;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -51,12 +59,13 @@ public class User implements DBHelper.TableCreateTnterface
     }
 
 
-    private static final String CREAT_TABLE="create table User(uid integer primary key autoincrement," +
-            "uname varchar(20)," +
-            "pwd varchar(20))";
+
     @Override
     public void onCreat(SQLiteDatabase db) {
-        db.execSQL(CREAT_TABLE);
+        String CREATE_TABLE="create table User(uid integer primary key autoincrement," +
+                "uname varchar(20)," +
+                "pwd varchar(20))";
+        db.execSQL(CREATE_TABLE);
     }
 
     @Override

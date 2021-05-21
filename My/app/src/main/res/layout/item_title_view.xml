@@ -8,6 +8,7 @@ android:background="@color/color_title_bar">
 
 <ImageView
     android:id="@+id/imgv_return"
+    android:onClick="myClick"
     android:layout_width="50dp"
     android:layout_height="match_parent"
     android:scaleType="centerInside"

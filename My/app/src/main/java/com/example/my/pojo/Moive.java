@@ -93,14 +93,15 @@ public class Moive implements DBHelper.TableCreateTnterface {
         return Moive.moive;
     }
 
-    private static final String CREAT_TABLE="create table Movie(MId integer primary key autoincrement," +
-            "mName varchar(20)," +
-            "director varchar(20)," +
-            "money varchar(20)," +
-            "score double," +
-            "uid varchar(20))";
+
     @Override
     public void onCreat(SQLiteDatabase db) {
+        String CREAT_TABLE="create table Movie(MId integer primary key autoincrement," +
+                "mName varchar(20)," +
+                "director varchar(20)," +
+                "money varchar(20)," +
+                "score double," +
+                "uid varchar(20))";
         db.execSQL(CREAT_TABLE);
     }
 

@@ -18,32 +18,35 @@ public class SqliteDao {
 
     public SqliteDao(Context context, String tableName) {
         this.mContext=context;
-        dbHeloer=new DBHelper(context,"user.db",null,1);//指定数据库名
+        dbHeloer=new DBHelper(context,"Moive.db",null,1);//指定数据库名
         this.tableName=tableName;
     }
 
     //注册用户
     public void addUser(User user){
-        dbHeloer.getWritableDatabase();
-        String sql="insert into User(UId,uname,pwd) values(null,?,?)";
-        db.execSQL(sql,new Object[]{user.getUname(),user.getPwd()});
-        db.close();
+        db=dbHeloer.getWritableDatabase();
+        if(db.isOpen()){
+            String sql="insert into User(uname,pwd) values(?,?)";
+            db.execSQL(sql,new Object[]{user.getUname(),user.getPwd()});
+            db.close();
+        }
     }
 
-    //只用户名查密码
+    //知用户名查密码
     public User queryUser(User user){
-        dbHeloer.getWritableDatabase();
-        String sql="select pwd from User where uname=?";
+        db=dbHeloer.getWritableDatabase();
+        String sql="select * from User where uname=?";
         Cursor cursor = db.rawQuery(sql,new String[]{user.getUname()});
+        User user1=new User();                    //不能等于null,否则会报setXXX虚拟方法
         while(cursor.moveToNext()){
-            int nameIndex=cursor.getColumnIndex("uid");//确定列的序号
+            int nameIndex=cursor.getColumnIndex("uname");//确定列的序号，注意和表内名字对应，不然报游标错位
             int pwdIndex=cursor.getColumnIndex("pwd");//确定列的序号
-            user.setUname(cursor.getString(nameIndex));//cursor.getString(nameIndex)根据列号，取出属性
-            user.setPwd(cursor.getString(pwdIndex));
+            user1.setUname(cursor.getString(nameIndex));//cursor.getString(nameIndex)根据列号，取出属性
+            user1.setPwd(cursor.getString(pwdIndex));
         }
         cursor.close();
         db.close();
-        return user;
+        return user1;
     }
 
     //知电影名查电影
@@ -54,7 +57,7 @@ public class SqliteDao {
             "score double," +
             "uid varchar(20))";*/
     public Moive queryMoive(Moive moive){
-        dbHeloer.getWritableDatabase();
+        db=dbHeloer.getWritableDatabase();
         String sql="select * from User where uname=?";
         Cursor cursor = db.rawQuery(sql,new String[]{moive.getmName()});
         Moive moive1=null;

@@ -7,31 +7,9 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/color_title_bar">
-
-
-        <ImageView
-            android:id="@+id/imgv_return"
-            android:layout_width="50dp"
-            android:onClick="myClick"
-            android:layout_height="match_parent"
-            android:scaleType="centerInside"
-            android:src="@mipmap/arrow_white_left" />
-
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_centerInParent="true"
-            android:gravity="center"
-            android:text="登录"
-            android:textColor="#ffffff"
-            android:textSize="18sp" />
-
-    </RelativeLayout>
+    <include
+        android:id="@+id/rela_title"
+        layout="@layout/item_title_view" />
 
     <LinearLayout
 
@@ -47,8 +25,7 @@
             android:paddingRight="24dp">
 
             <EditText
-                android:id="@+id/inputMobile1"
-                android:onClick="myClick"
+                android:id="@+id/inputMobile"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@null"
@@ -58,6 +35,11 @@
                 android:textColor="#43496A"
                 android:textColorHint="#bbbbbb"
                 android:textSize="14sp" />
+
+            <View
+                style="@style/style_cut_line"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="10dp" />
 
         </RelativeLayout>
 
@@ -70,8 +52,7 @@
             android:paddingRight="24dp">
 
             <EditText
-                android:id="@+id/inputpwd1"
-                android:onClick="myClick"
+                android:id="@+id/inputpwd"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@null"
@@ -82,23 +63,38 @@
                 android:textColorHint="#bbbbbb"
                 android:textSize="14sp" />
 
+            <View
+                style="@style/style_cut_line"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="10dp" />
 
         </RelativeLayout>
 
-        <TextView
-            android:id="@+id/toLogin"
-            android:onClick="myClick"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="12dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="12dp"
-            android:background="@drawable/shape_bg_3853e8_4"
-            android:gravity="center"
-            android:text="登录"
-            android:textColor="#ffffff"
-            android:textSize="16sp" />
+            android:layout_marginTop="20dp"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp">
+
+            <EditText
+                android:id="@+id/inputpwd_repeat"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:hint="再次输入密码"
+                android:inputType="number"
+                android:maxLength="11"
+                android:textColor="#43496A"
+                android:textColorHint="#bbbbbb"
+                android:textSize="14sp" />
+
+            <View
+                style="@style/style_cut_line"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="10dp" />
+
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/rigister"
