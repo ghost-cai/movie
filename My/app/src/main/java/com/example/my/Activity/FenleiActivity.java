@@ -1,4 +1,4 @@
-package com.example.my;
+package com.example.my.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+
+import com.example.my.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;

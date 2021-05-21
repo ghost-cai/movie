@@ -11,9 +11,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import com.example.my.FenleiActivity;
-import com.example.my.MainActivity;
-import com.example.my.Movie_detailActivity;
+import com.example.my.Activity.FenleiActivity;
+import com.example.my.Activity.Movie_detailActivity;
 import com.example.my.R;
 
 /**

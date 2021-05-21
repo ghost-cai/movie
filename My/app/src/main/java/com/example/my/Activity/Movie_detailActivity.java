@@ -1,9 +1,11 @@
-package com.example.my;
+package com.example.my.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.my.R;
 
 public class Movie_detailActivity extends AppCompatActivity {
 
