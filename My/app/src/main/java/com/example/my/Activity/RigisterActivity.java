@@ -31,13 +31,13 @@ public class RigisterActivity extends AppCompatActivity {
         inputpwdRepeat=this.findViewById(R.id.inputpwd_repeat);
     }
 
-    public void myClick(View v){
+    public void rigisterClick(View v){
         SqliteDao dao=new SqliteDao(RigisterActivity.this,"User");//新建dao对象
         switch (v.getId()){
             case R.id.imgv_return:
                 onBackPressed();
                 break;
-            case R.id.rigister:
+            case R.id.rigister2:
                 if (StringUtil.isEmpty(inputMobile.getText().toString())) {
                     ToastUtil.showToast(this, "请输入账号");
                     return;

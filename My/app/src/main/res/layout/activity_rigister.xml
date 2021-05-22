@@ -97,8 +97,8 @@
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/rigister"
-            android:onClick="myClick"
+            android:id="@+id/rigister2"
+            android:onClick="rigisterClick"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_centerInParent="true"

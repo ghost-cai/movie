@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,6 +31,35 @@ public class LoginActivity extends AppCompatActivity {
         SQLiteStudioService.instance().start(this);
         intiView();
 
+        tv1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (StringUtil.isEmpty(inputMobile.getText().toString())) {
+                    ToastUtil.showToast(LoginActivity.this, "请输入账号");
+                    return;
+                }
+                if (StringUtil.isEmpty(inputpwd.getText().toString())) {
+                    ToastUtil.showToast(LoginActivity.this, "请输入密码");
+                    return;
+                }
+                User user=new User();
+                SqliteDao daoUser=new SqliteDao(LoginActivity.this,"User");
+                user.setUname(inputMobile.getText().toString());
+                user.setPwd(inputpwd.getText().toString());
+                User user1=daoUser.queryUser(user);//查询数据库
+                try {
+                    if(user.getPwd().equals(user1.getPwd())){
+                        ToastUtil.showToast(LoginActivity.this, "登录成功");
+                        Intent intent=new Intent(LoginActivity.this,MainActivity.class);//从A跳到B
+                        intent.putExtra("uName",user1.getUname());//传递用户参数
+                        startActivity(intent);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    ToastUtil.showToast(LoginActivity.this, "用户名密码错误");
+                }
+            }
+        });
 
     }
 
@@ -60,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
                 try {
                     if(user.getPwd().equals(user1.getPwd())){
                         ToastUtil.showToast(this, "登录成功");
-                        Intent intent=new Intent(LoginActivity.this,MainActivity.class);//从A跳到B
+                        Intent intent=new Intent(this,MainActivity.class);//从A跳到B
                         intent.putExtra("uName",user1.getUname());//传递用户参数
                         startActivity(intent);
                     }
