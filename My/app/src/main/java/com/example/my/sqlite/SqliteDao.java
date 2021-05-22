@@ -8,6 +8,9 @@ import android.database.sqlite.SQLiteDatabase;
 import com.example.my.pojo.Moive;
 import com.example.my.pojo.User;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SqliteDao {
 
     private String tableName;
@@ -68,7 +71,7 @@ public class SqliteDao {
             int moneyIndex=cursor.getColumnIndex("money");
             int scoreIndex=cursor.getColumnIndex("score");
             int uidIndex=cursor.getColumnIndex("uid");
-            String id=cursor.getString(midIndex);
+            int id=cursor.getInt(midIndex);
             String name=cursor.getString(nameIndex);
             String director=cursor.getString(directorIndex);
             String money=cursor.getString(moneyIndex);
@@ -79,6 +82,38 @@ public class SqliteDao {
         cursor.close();
         db.close();
         return moive1;
+    }
+
+    //查全部电影信息
+    public List<Moive> queryMovieList(){
+        db = dbHeloer.getReadableDatabase();//打开数据库
+        List<Moive> moivesBeanList = null;//用list存一条条数据
+        if (db.isOpen()) {
+            moivesBeanList=new ArrayList<>();
+            Cursor cursor = db.rawQuery("select * from Movie order by score desc",null);
+            while (cursor.moveToNext()) {//确定行
+                int MidIndex = cursor.getColumnIndex("MId");//确定列的序号
+                int nameIndex = cursor.getColumnIndex("mName");//确定列序号
+                int directorIndex = cursor.getColumnIndex("director");//确定列序号
+                int moneyIndex = cursor.getColumnIndex("money");//确定列序号
+                int scoreIndex = cursor.getColumnIndex("score");//确定列序号
+                int uidIndex = cursor.getColumnIndex("uid");//确定列序号
+
+                //表中是int,用getint，表中是String，用String
+                Moive moive = new Moive(
+                        cursor.getInt(MidIndex),
+                        cursor.getString(nameIndex),
+                        cursor.getString(directorIndex),
+                        cursor.getString(moneyIndex),
+                        cursor.getFloat(scoreIndex),
+                        cursor.getString(uidIndex)
+                );
+                moivesBeanList.add(moive);
+            }
+            cursor.close();
+            db.close();
+        }
+        return moivesBeanList;
     }
 
 }

@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import com.example.my.sqlite.DBHelper;
 
 public class Moive implements DBHelper.TableCreateTnterface {
-    private String id;
+    private int id;
     private String mName;
     private String directorName;
     private  String money;
@@ -15,7 +15,7 @@ public class Moive implements DBHelper.TableCreateTnterface {
     public Moive() {
     }
 
-    public Moive(String id, String mName, String directorName, String money, float score, String uid) {
+    public Moive(int id, String mName, String directorName, String money, float score, String uid) {
         this.id = id;
         this.mName = mName;
         this.directorName = directorName;
@@ -44,12 +44,12 @@ public class Moive implements DBHelper.TableCreateTnterface {
         this.uid = uid;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
