@@ -5,26 +5,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-            <ImageButton
-                android:id="@+id/imBtenHome"
+            <ImageView
+                android:id="@+id/imagleHome"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:src="@mipmap/icon_photo_default" />
+                android:src="@mipmap/icon_photo_default"
+                android:focusable="false"/>
 
             <TextView
-                android:id="@+id/tvHome"
+                android:id="@+id/tv_name_Home"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:textSize="20dp"
-                android:text="电影名" />
+                android:text="电影名"
+                android:focusable="false"/>
             <TextView
-                android:id="@+id/tv2Homme"
+                android:id="@+id/tv_score_Homme"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:textSize="20dp"
-                android:text="评分" />
+                android:text="评分"
+                android:focusable="false"/>
 
 </LinearLayout>
 

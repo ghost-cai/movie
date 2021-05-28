@@ -24,14 +24,14 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/imgv_photo"
+            android:id="@+id/imgv_detial"
             android:layout_width="300dp"
             android:layout_height="200dp"
             android:layout_gravity="center_horizontal"
             android:src="@mipmap/pic_haishanggangqinshi" />
 
         <TextView
-            android:id="@+id/tv_name"
+            android:id="@+id/tvDetial_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -40,7 +40,7 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/tv_people"
+            android:id="@+id/tvDetial_people"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -49,7 +49,7 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/tv_hot"
+            android:id="@+id/tvDetial_hot"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -58,7 +58,7 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/tv_score"
+            android:id="@+id/tvDetial_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -67,7 +67,7 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/tv_like"
+            android:id="@+id/tvDetial_like"
             android:layout_width="92dp"
             android:layout_height="40dp"
             android:layout_gravity="center_horizontal"

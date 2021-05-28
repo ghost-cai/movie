@@ -50,5 +50,8 @@ public class FenleiActivity extends AppCompatActivity {
         ListView listViewR=findViewById(R.id.lv2);
         listViewR.setAdapter(adapterR);
 
+
+
+
     }
 }
