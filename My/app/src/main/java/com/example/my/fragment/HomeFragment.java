@@ -68,8 +68,10 @@ public class HomeFragment extends Fragment {
         listViewHome.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                String name=moivesList.get(position).getmName();    //position即为点击的第几条，和list里面的id对应
                 Intent intent=new Intent(getActivity(), Movie_detailActivity.class);
-                intent.putExtra("name",adapter.name);
+                intent.putExtra("name",name);           //传一个电影名去Movie——detail
                 startActivity(intent);
             }
         });

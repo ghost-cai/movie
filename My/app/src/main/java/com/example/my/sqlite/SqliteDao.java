@@ -59,13 +59,13 @@ public class SqliteDao {
             "money varchar(20)," +
             "score double," +
             "uid varchar(20))";*/
-    public Moive queryMoive(Moive moive){
+    public Moive queryMoive(String mName){
         db=dbHeloer.getWritableDatabase();
-        String sql="select * from User where uname=?";
-        Cursor cursor = db.rawQuery(sql,new String[]{moive.getmName()});
-        Moive moive1=null;
+        String sql="select * from Movie where mName=?";
+        Cursor cursor = db.rawQuery(sql,new String[]{mName});
+        Moive moive=null;
         while(cursor.moveToNext()){
-            int midIndex=cursor.getColumnIndex("Mid");
+            int midIndex=cursor.getColumnIndex("MId");
             int nameIndex=cursor.getColumnIndex("mName");
             int directorIndex=cursor.getColumnIndex("director");
             int moneyIndex=cursor.getColumnIndex("money");
@@ -77,11 +77,11 @@ public class SqliteDao {
             String money=cursor.getString(moneyIndex);
             float score=cursor.getFloat(scoreIndex);
             String uid=cursor.getString(uidIndex);
-            moive1=new Moive(id,name,director,money,score,uid);
+            moive=new Moive(id,name,director,money,score,uid);
         }
         cursor.close();
         db.close();
-        return moive1;
+        return moive;
     }
 
     //查全部电影信息

@@ -20,8 +20,6 @@ public class MovieAdapter extends BaseAdapter {
     private LayoutInflater inflater;
     private Context mycontext;
     private List<Moive> moiveList;
-    public String name;
-
 
 /*通过构造方法获取一些参数*/
     public MovieAdapter(Context context, List<Moive> moiveList) {
@@ -30,18 +28,22 @@ public class MovieAdapter extends BaseAdapter {
         this.mycontext=context;
     }
 
+    //决定显示多少条item
     @Override
-    public int getCount() {                 //决定显示多少条item
+    public int getCount() {
         return moiveList==null ? 0:moiveList.size();
     }
 
+    //拿到一条数据
     @Override
-    public Object getItem(int position) {      //拿到一条数据
+    public Object getItem(int position) {
+
         return moiveList.get(position);
     }
 
+    //获取item的id
     @Override
-    public long getItemId(int position) {       //获取item的id
+    public long getItemId(int position) {
         return position;
     }
 
@@ -58,16 +60,6 @@ public class MovieAdapter extends BaseAdapter {
         tv_name.setText(movieItem.getmName());
         String score=String.valueOf(movieItem.getScore());  //对象中是flaot类型数据，转化成string
         tv_score.setText(score);
-
-        name = movieItem.getmName();
-//        convertView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(mycontext, Movie_detailActivity.class);
-//                intent.putExtra("mName", name);
-//
-//            }
-//        });
         return view;
     }
 }
