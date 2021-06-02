@@ -21,7 +21,7 @@ public class SqliteDao {
 
     public SqliteDao(Context context, String tableName) {
         this.mContext=context;
-        dbHeloer=new DBHelper(context,"Moive.db",null,1);//指定数据库名
+        dbHeloer=new DBHelper(context,"Moive.db",null,2);//指定数据库名
         this.tableName=tableName;
     }
 
@@ -30,6 +30,7 @@ public class SqliteDao {
         db=dbHeloer.getWritableDatabase();
         if(db.isOpen()){
             String sql="insert into User(uname,pwd) values(?,?)";
+
             db.execSQL(sql,new Object[]{user.getUname(),user.getPwd()});
             db.close();
         }
@@ -53,36 +54,74 @@ public class SqliteDao {
     }
 
     //知电影名查电影
-    /*private static final String CREAT_TABLE="create table Movie(MId integer primary key autoincrement," +
-            "mName varchar(20)," +
-            "director varchar(20)," +
-            "money varchar(20)," +
-            "score double," +
-            "uid varchar(20))";*/
     public Moive queryMoive(String mName){
         db=dbHeloer.getWritableDatabase();
         String sql="select * from Movie where mName=?";
         Cursor cursor = db.rawQuery(sql,new String[]{mName});
         Moive moive=null;
         while(cursor.moveToNext()){
-            int midIndex=cursor.getColumnIndex("MId");
-            int nameIndex=cursor.getColumnIndex("mName");
-            int directorIndex=cursor.getColumnIndex("director");
-            int moneyIndex=cursor.getColumnIndex("money");
-            int scoreIndex=cursor.getColumnIndex("score");
-            int uidIndex=cursor.getColumnIndex("uid");
-            int id=cursor.getInt(midIndex);
-            String name=cursor.getString(nameIndex);
-            String director=cursor.getString(directorIndex);
-            String money=cursor.getString(moneyIndex);
-            float score=cursor.getFloat(scoreIndex);
-            String uid=cursor.getString(uidIndex);
-            moive=new Moive(id,name,director,money,score,uid);
+            int MidIndex = cursor.getColumnIndex("MId");//确定列的序号
+            int nameIndex = cursor.getColumnIndex("mName");//确定列序号
+            int directorIndex = cursor.getColumnIndex("director");//确定列序号
+            int moneyIndex = cursor.getColumnIndex("money");//确定列序号
+            int scoreIndex = cursor.getColumnIndex("score");//确定列序号
+            int pictureIdIndex=cursor.getColumnIndex("pictureId");
+            int classifyIndex=cursor.getColumnIndex("classify");
+            int uidIndex = cursor.getColumnIndex("uid");//确定列序号
+            moive = new Moive(
+                    cursor.getInt(MidIndex),
+                    cursor.getString(nameIndex),
+                    cursor.getString(directorIndex),
+                    cursor.getString(moneyIndex),
+                    cursor.getFloat(scoreIndex),
+                    cursor.getString(pictureIdIndex),
+                    cursor.getString(classifyIndex),
+                    cursor.getString(uidIndex)
+            );
         }
         cursor.close();
         db.close();
         return moive;
     }
+
+
+    //查同类电影信息
+    public List<Moive> queryClassify(String classify){
+        db = dbHeloer.getReadableDatabase();//打开数据库
+        List<Moive> moivesBeanList = null;//用list存一条条数据
+        if (db.isOpen()) {
+            moivesBeanList=new ArrayList<>();
+            String sql="select * from Movie where classify=?";
+            Cursor cursor = db.rawQuery(sql,new String[]{classify});
+            while (cursor.moveToNext()) {//确定行
+                int MidIndex = cursor.getColumnIndex("MId");//确定列的序号
+                int nameIndex = cursor.getColumnIndex("mName");//确定列序号
+                int directorIndex = cursor.getColumnIndex("director");//确定列序号
+                int moneyIndex = cursor.getColumnIndex("money");//确定列序号
+                int scoreIndex = cursor.getColumnIndex("score");//确定列序号
+                int pictureIdIndex=cursor.getColumnIndex("pictureId");
+                int classifyIndex=cursor.getColumnIndex("classify");
+                int uidIndex = cursor.getColumnIndex("uid");//确定列序号
+
+                //表中是int,用getint，表中是String，用String
+                Moive moive = new Moive(
+                        cursor.getInt(MidIndex),
+                        cursor.getString(nameIndex),
+                        cursor.getString(directorIndex),
+                        cursor.getString(moneyIndex),
+                        cursor.getFloat(scoreIndex),
+                        cursor.getString(pictureIdIndex),
+                        cursor.getString(classifyIndex),
+                        cursor.getString(uidIndex)
+                );
+                moivesBeanList.add(moive);
+            }
+            cursor.close();
+            db.close();
+        }
+        return moivesBeanList;
+    }
+
 
     //查全部电影信息
     public List<Moive> queryMovieList(){
@@ -97,6 +136,8 @@ public class SqliteDao {
                 int directorIndex = cursor.getColumnIndex("director");//确定列序号
                 int moneyIndex = cursor.getColumnIndex("money");//确定列序号
                 int scoreIndex = cursor.getColumnIndex("score");//确定列序号
+                int pictureIdIndex=cursor.getColumnIndex("pictureId");
+                int classifyIndex=cursor.getColumnIndex("classify");
                 int uidIndex = cursor.getColumnIndex("uid");//确定列序号
 
                 //表中是int,用getint，表中是String，用String
@@ -106,6 +147,8 @@ public class SqliteDao {
                         cursor.getString(directorIndex),
                         cursor.getString(moneyIndex),
                         cursor.getFloat(scoreIndex),
+                        cursor.getString(pictureIdIndex),
+                        cursor.getString(classifyIndex),
                         cursor.getString(uidIndex)
                 );
                 moivesBeanList.add(moive);

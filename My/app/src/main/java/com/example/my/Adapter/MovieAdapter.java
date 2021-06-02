@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.example.my.Activity.Movie_detailActivity;
 import com.example.my.R;
 import com.example.my.pojo.Moive;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +57,8 @@ public class MovieAdapter extends BaseAdapter {
         TextView tv_name=view.findViewById(R.id.tv_name_Home);
         TextView tv_score=view.findViewById(R.id.tv_score_Homme);
     /*把值放控件上显示*/
-        imageHome.setImageResource(R.mipmap.pic_haishanggangqinshi);
+        Picasso.with(mycontext).load(movieItem.getPictureId()).into(imageHome);
+//        imageHome.setBackgroundResource(R.mipmap.pic_haishanggangqinshi);
         tv_name.setText(movieItem.getmName());
         String score=String.valueOf(movieItem.getScore());  //对象中是flaot类型数据，转化成string
         tv_score.setText(score);

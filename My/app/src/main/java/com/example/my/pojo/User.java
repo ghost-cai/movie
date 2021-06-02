@@ -61,7 +61,7 @@ public class User implements DBHelper.TableCreateTnterface
 
 
     @Override
-    public void onCreat(SQLiteDatabase db) {
+    public void onCreate(SQLiteDatabase db) {
         String CREATE_TABLE="create table User(uid integer primary key autoincrement," +
                 "uname varchar(20)," +
                 "pwd varchar(20))";
@@ -70,7 +70,11 @@ public class User implements DBHelper.TableCreateTnterface
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        if(oldVersion<newVersion){
+            String sql="drop table if exists User";
+            db.execSQL(sql);
+            this.onCreate(db);
+        }
     }
 
 }

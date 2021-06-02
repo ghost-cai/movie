@@ -8,9 +8,11 @@
             <ImageView
                 android:id="@+id/imagleHome"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="wrap_content"
                 android:src="@mipmap/icon_photo_default"
-                android:focusable="false"/>
+                android:focusable="false"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY" />
 
             <TextView
                 android:id="@+id/tv_name_Home"
