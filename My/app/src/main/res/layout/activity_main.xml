@@ -12,6 +12,9 @@
         android:layout_above="@+id/ll_bottom"
         android:layout_weight="1"
         android:background="@android:color/transparent">
+
+        <include android:id="@+id/home"
+            layout="@layout/fragment_home"/>
     </FrameLayout>
 
 

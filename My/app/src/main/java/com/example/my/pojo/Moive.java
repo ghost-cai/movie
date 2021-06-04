@@ -133,11 +133,11 @@ public class Moive implements DBHelper.TableCreateTnterface {
         //插入语句-----------------------------------------------------------------------------------
         ArrayList<String> sqlInsert=new ArrayList<>();
         sqlInsert.add("insert into Movie values(1,'星际穿越','张一','2.3亿',9.8,'"+pictureId.get(0)+"','科幻',1)");
-        sqlInsert.add("insert into Movie values(2,'泰坦尼克号','张二','3.3亿',9.8,'"+pictureId.get(1)+"','爱情',1)");
-        sqlInsert.add("insert into Movie values(3,'贞子','张三','1.3亿',9.8,'"+pictureId.get(2)+"','恐怖',1)");
-        sqlInsert.add("insert into Movie values(4,'第五元素','张四','1.2亿',9.8,'"+pictureId.get(3)+"','科幻',1)");
-        sqlInsert.add("insert into Movie values(5,'回魂夜','张五','3000万',9.8,'"+pictureId.get(4)+"','恐怖',1)");
-        sqlInsert.add("insert into Movie values(6,'山楂树之恋','张六','1亿',9.8,'"+pictureId.get(5)+"','爱情',1)");
+        sqlInsert.add("insert into Movie values(2,'泰坦尼克号','张二','3.3亿',9.7,'"+pictureId.get(1)+"','爱情',1)");
+        sqlInsert.add("insert into Movie values(3,'贞子','张三','1.3亿',7.8,'"+pictureId.get(2)+"','恐怖',1)");
+        sqlInsert.add("insert into Movie values(4,'第五元素','张四','1.2亿',8.8,'"+pictureId.get(3)+"','科幻',1)");
+        sqlInsert.add("insert into Movie values(5,'回魂夜','张五','3000万',7.9,'"+pictureId.get(4)+"','恐怖',1)");
+        sqlInsert.add("insert into Movie values(6,'山楂树之恋','张六','1亿',8.5,'"+pictureId.get(5)+"','爱情',1)");
         //执行------------------------------------------------------------------------------------
         db.execSQL(CREAT_TABLE);
         for (int i = 0; i <sqlInsert.size() ; i++) {

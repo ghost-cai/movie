@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
+    android:layout_margin="20dp"
     android:background="@color/colorwhite">
 
         <LinearLayout
@@ -28,7 +28,7 @@
         android:layout_height="80dp"
         android:layout_marginTop="5dp"
         android:singleLine="false"
-        android:text="aslfjhsalkdhfljksdahf ksjfh lsakhdflaksfhlkashdflkhask"
+        android:text="这是用户发表的观点！！！"
         android:textSize="50px" />
 
 </LinearLayout>

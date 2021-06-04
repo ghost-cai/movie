@@ -11,14 +11,21 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ListView;
 
+import com.example.my.Adapter.MovieAdapter;
 import com.example.my.R;
 import com.example.my.fragment.ChatFragment;
 import com.example.my.fragment.HomeFragment;
 import com.example.my.fragment.MyFragment;
+import com.example.my.pojo.Moive;
 import com.example.my.pojo.User;
 import com.example.my.sqlite.DBHelper;
+import com.example.my.sqlite.SqliteDao;
+
+import java.util.List;
 
 import pl.com.salsoft.sqlitestudioremote.SQLiteStudioService;
 
@@ -44,6 +51,27 @@ public class MainActivity extends FragmentActivity {
         //连接sqlite studio时使用
         SQLiteStudioService.instance().start(this);
         initView();
+
+        //主页显示高分电影---------------------------------------------------------------------------
+
+        /*从表中得到movielist*/
+        SqliteDao dao=new SqliteDao(MainActivity.this,"Movie");
+        final List<Moive> moivesList=dao.queryMovieList();
+
+        final MovieAdapter adapter=new MovieAdapter(MainActivity.this,moivesList);
+        ListView listViewHome=this.findViewById(R.id.list_Home);
+        listViewHome.setAdapter(adapter);
+        /*点击事件*/
+        listViewHome.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                String name=moivesList.get(position).getmName();    //position即为点击的第几条，和list里面的id对应
+                Intent intent=new Intent(MainActivity.this, Movie_detailActivity.class);
+                intent.putExtra("name",name);           //传一个电影名去Movie——detail
+                startActivity(intent);
+            }
+        });
     }
 
 
@@ -51,6 +79,7 @@ public class MainActivity extends FragmentActivity {
         homeBtn=this.findViewById(R.id.homeBtn);
         chatBtn=this.findViewById(R.id.chatBtn);
         myBtn=this.findViewById(R.id.myBtn);
+        Button flBtn=this.findViewById(R.id.flBtn);
     }
 
     public void myClick(View v){
@@ -73,6 +102,9 @@ public class MainActivity extends FragmentActivity {
                 transaction.replace(R.id.fragment_container,myFra);
                 transaction.commit();
                 break;
+            case R.id.fenlei:
+                Intent intent=new Intent(MainActivity.this,FenleiActivity.class);
+                startActivity(intent);
         }
     }
 
