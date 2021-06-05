@@ -34,7 +34,7 @@ public class Movie_SubscribeActivity extends AppCompatActivity {
         }
 
         //显示订阅的电影------------------------------------------------------------------------
-        ArrayAdapter<String> adapter=new ArrayAdapter<String>(Movie_SubscribeActivity.this,android.R.layout.simple_expandable_list_item_1,listName);
+        ArrayAdapter<String> adapter=new ArrayAdapter<String>(Movie_SubscribeActivity.this,R.layout.item_simpletext,listName);
         ListView listViewMname=this.findViewById(R.id.lv_subscribe);
         listViewMname.setAdapter(adapter);
 

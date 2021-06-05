@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorwhite"
+    android:background="@drawable/blackground"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:text="电影名称：海上钢琴师"
-            android:textColor="@color/color_black"
+            android:textColor="@color/color_theme_bg"
             android:textSize="18sp" />
 
         <TextView
@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="导演：吴京"
-            android:textColor="@color/color_black"
+            android:textColor="@color/color_theme_bg"
             android:textSize="18sp" />
 
         <TextView
@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="票房：5600万"
-            android:textColor="@color/color_black"
+            android:textColor="@color/color_theme_bg"
             android:textSize="18sp" />
 
         <TextView
@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="评分：9.5"
-            android:textColor="@color/color_black"
+            android:textColor="@color/color_theme_bg"
             android:textSize="18sp" />
 
         <CheckBox
@@ -91,11 +91,13 @@
             android:layout_height="wrap_content"
             android:text="打分"
             android:textSize="25dp"
+            android:textColor="@color/color_theme_bg"
             android:layout_gravity="center_horizontal"/>
         <RatingBar
             android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@color/color_fragment_chat"
             android:layout_centerHorizontal="true"/>
     </LinearLayout>
 

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_theme_bg"
+    android:background="@drawable/blackground"
     android:fitsSystemWindows="true">
 
 
@@ -11,12 +11,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="40dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="180dp"
-            android:background="#f8f8f8">
+            android:background="@drawable/blackground">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -30,7 +31,7 @@
                     android:layout_width="62dp"
                     android:layout_height="62dp"
                     android:layout_marginLeft="24dp"
-                    android:src="@mipmap/icon_photo_default"/>
+                    android:src="@mipmap/icon_photo_default" />
 
                 <TextView
                     android:id="@+id/tv_username_mine"
@@ -53,7 +54,7 @@
             android:id="@+id/rela_list"
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:background="@color/colorwhite">
+            android:background="#423E3E">
 
 
             <TextView
@@ -63,7 +64,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="20dp"
                 android:text="我的订阅"
-                android:textColor="#333333"
+                android:textColor="#ffffff"
                 android:textSize="15sp" />
 
             <ImageView

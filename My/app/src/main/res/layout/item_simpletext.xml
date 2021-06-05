@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/dingyue_movie"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#423E3E"
+        android:layout_marginBottom="5dp"
+        android:gravity="center_vertical"
+        android:text="这是例子"
+        android:textColor="@color/color_theme_bg"
+        android:textSize="25dp"
+        />
+
