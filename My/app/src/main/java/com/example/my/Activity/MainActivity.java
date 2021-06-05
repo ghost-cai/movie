@@ -24,6 +24,7 @@ import com.example.my.pojo.Moive;
 import com.example.my.pojo.User;
 import com.example.my.sqlite.DBHelper;
 import com.example.my.sqlite.SqliteDao;
+import com.example.my.utils.GlobalUtil;
 
 import java.util.List;
 
@@ -52,26 +53,15 @@ public class MainActivity extends FragmentActivity {
         SQLiteStudioService.instance().start(this);
         initView();
 
+        Intent intent = getIntent();
+        GlobalUtil.uName = intent.getStringExtra("uName");                      //全局变量记录用户名
+
         //主页显示高分电影---------------------------------------------------------------------------
-
-        /*从表中得到movielist*/
-        SqliteDao dao=new SqliteDao(MainActivity.this,"Movie");
-        final List<Moive> moivesList=dao.queryMovieList();
-
-        final MovieAdapter adapter=new MovieAdapter(MainActivity.this,moivesList);
-        ListView listViewHome=this.findViewById(R.id.list_Home);
-        listViewHome.setAdapter(adapter);
-        /*点击事件*/
-        listViewHome.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                String name=moivesList.get(position).getmName();    //position即为点击的第几条，和list里面的id对应
-                Intent intent=new Intent(MainActivity.this, Movie_detailActivity.class);
-                intent.putExtra("name",name);           //传一个电影名去Movie——detail
-                startActivity(intent);
-            }
-        });
+        FragmentManager fm=getSupportFragmentManager();
+        FragmentTransaction transaction=fm.beginTransaction();//开启事务,转换fragment用
+        homeFra=new HomeFragment();
+        transaction.replace(R.id.fragment_container,homeFra);
+        transaction.commit();
     }
 
 

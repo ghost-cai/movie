@@ -66,15 +66,15 @@
             android:textColor="@color/color_black"
             android:textSize="18sp" />
 
-        <TextView
+        <CheckBox
             android:id="@+id/tvDetial_like"
-            android:layout_width="92dp"
+            android:layout_width="200dp"
             android:layout_height="40dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="15dp"
             android:background="@drawable/shape_bg_3853e8_4"
             android:gravity="center"
-            android:text="未订阅"
+            android:text="订阅电影"
             android:textColor="@color/colorwhite"
             android:textSize="18sp"
             android:textStyle="bold" />

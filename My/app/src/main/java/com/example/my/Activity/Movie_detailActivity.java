@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,13 +20,8 @@ public class Movie_detailActivity extends AppCompatActivity {
 
     private TextView tvDetial_name,tvDetial_people,tvDetial_hot,tvDetial_score;
     private ImageView tvDetial_picture;
-    void intiView(){
-        tvDetial_name=this.findViewById(R.id.tvDetial_name);
-        tvDetial_people=this.findViewById(R.id.tvDetial_people);
-        tvDetial_hot=this.findViewById(R.id.tvDetial_hot);
-        tvDetial_score=this.findViewById(R.id.tvDetial_score);
-        tvDetial_picture=this.findViewById(R.id.imgv_detial);
-    }
+    private CheckBox tvDetial_like;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +34,46 @@ public class Movie_detailActivity extends AppCompatActivity {
         //初始化控件
         intiView();
         //获取电影信息-----------------------------------------------------------------------------
-        Moive moive=new Moive();
-        SqliteDao dao=new SqliteDao(this,"Movie");
-        moive=dao.queryMoive(mName);
-        //显示到控件------------------------------------------------------------------------------
+        final SqliteDao dao=new SqliteDao(this,"Movie");
+        final Moive moive=dao.queryMoive(mName);
+        //电影信息显示到控件------------------------------------------------------------------------------
+        showMovie(moive);
+        //订阅功能------------------------------------------------------------------------------------
+        tvDetial_like.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    dao.updateMovie(moive);
+                    tvDetial_like.setText("订阅");
+                }
+                else{
+                    dao.updateMovie2(moive);
+                    tvDetial_like.setText("未订阅");
+                }
+            }
+        });
+
+
+
+
+    }
+
+
+
+
+
+
+    void intiView(){
+        tvDetial_name=this.findViewById(R.id.tvDetial_name);
+        tvDetial_people=this.findViewById(R.id.tvDetial_people);
+        tvDetial_hot=this.findViewById(R.id.tvDetial_hot);
+        tvDetial_score=this.findViewById(R.id.tvDetial_score);
+        tvDetial_like=this.findViewById(R.id.tvDetial_like);
+        tvDetial_picture=this.findViewById(R.id.imgv_detial);
+    }
+
+    /*展示电影*/
+    void showMovie(Moive moive){
         tvDetial_name.setText("电影名称："+moive.getmName());
         tvDetial_people.setText("导演："+moive.getDirectorName());
         tvDetial_hot.setText("票房："+moive.getMoney());

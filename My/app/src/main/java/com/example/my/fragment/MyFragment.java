@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.my.Activity.LoginActivity;
+import com.example.my.Activity.Movie_SubscribeActivity;
 import com.example.my.Activity.Movie_detailActivity;
 import com.example.my.R;
 
@@ -42,9 +43,19 @@ public class MyFragment extends Fragment {
             }
         });
 
+        //我的订阅
+        TextView textSubscribe=view.findViewById(R.id.mySubscribe);
+        textSubscribe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(), Movie_SubscribeActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
 
         return view;
     }
+
 }
